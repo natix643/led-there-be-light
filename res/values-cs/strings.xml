@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">LED There Be Light</string>
+    <string name="flash_on">ZAP</string>
+    <string name="flash_off">VYP</string>
+
+</resources>
