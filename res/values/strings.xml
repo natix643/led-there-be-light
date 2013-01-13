@@ -3,5 +3,6 @@
     <string name="app_name">LED There Be Light</string>
     <string name="flash_on">ON</string>
     <string name="flash_off">OFF</string>
+    <string name="error_connect_to_camera">Cannot connect to camera</string>
 
 </resources>

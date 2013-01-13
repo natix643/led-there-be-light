@@ -6,11 +6,15 @@ import android.content.res.Configuration;
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class MainActivity extends Activity {
+
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     private Camera camera;
 
@@ -33,10 +37,16 @@ public class MainActivity extends Activity {
     }
 
     private void flashOn() {
-        camera = Camera.open();
-        Parameters parameters = camera.getParameters();
-        parameters.setFlashMode(Parameters.FLASH_MODE_TORCH);
-        camera.setParameters(parameters);
+        try {
+            camera = Camera.open();
+            Parameters parameters = camera.getParameters();
+            parameters.setFlashMode(Parameters.FLASH_MODE_TORCH);
+            camera.setParameters(parameters);
+        } catch (RuntimeException ex) {
+            Log.e(TAG, "Error when connecting to camera", ex);
+            Toast.makeText(this, R.string.error_connect_to_camera, Toast.LENGTH_LONG).show();
+            finish();
+        }
     }
 
     private void flashOff() {
