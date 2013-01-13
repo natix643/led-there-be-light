@@ -1,7 +1,0 @@
-<resources>
-
-    <string name="app_name">LED There Be Light</string>
-    <string name="flash_on">EIN</string>
-    <string name="flash_off">AUS</string>
-
-</resources>
